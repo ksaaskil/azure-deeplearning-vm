@@ -30,6 +30,19 @@ $ az vm deallocate -n ${AZ_VM_NAME} -g ${AZ_RESOURCE_GROUP}
 $ az vm delete -g ${AZ_RESOURCE_GROUP} -n ${AZ_VM_NAME}
 ```
 
+
+## Ansible
+
+Add `hosts` file based on the example in `hosts.example` and run:
+
+```bash
+$ ansible-playbook -i hosts site.yml
+```
+
+TODO:
+- [ ]  Fix error in starting code-server
+
+
 ## [Find images](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage)
 
 ```bash
@@ -49,14 +62,10 @@ $ az vm image list \
     --output table
 ```
 
+
 ## Image commands
 
 ```bash
 $ nvidia-smi
 ```
 
-## Ansible
-
-```bash
-$ ansible-playbook -i hosts playbook.yml
-```
