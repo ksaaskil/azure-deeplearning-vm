@@ -1,0 +1,10 @@
+---
+- hosts: vm
+  # vars:
+  #   http_port: 80
+  #   max_clients: 200
+  remote_user: azureuser
+  tasks:
+    - name: test connection
+      ping:
+        data: pong

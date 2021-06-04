@@ -1,0 +1,12 @@
+[Unit]
+Description=VSCode on the server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/home/azureuser
+
+ExecStart=/usr/lib/code-server/bin/code-server 
+
+[Install]
+WantedBy=multi-user.target

@@ -2,6 +2,7 @@
 
 ```bash
 $ az group create --name ${AZ_RESOURCE_GROUP} --location ${AZ_LOCATION}
+$ az network public-ip create -g ${AZ_RESOURCE_GROUP} -n ${AZ_PUBLIC_IP}
 $ az vm create \
   --name ${AZ_VM_NAME} \
   --resource-group ${AZ_RESOURCE_GROUP} \
@@ -9,8 +10,18 @@ $ az vm create \
   --location ${AZ_LOCATION} \
   --size ${AZ_SIZE} \
   --ssh-key-value ${AZ_SSH_KEY} \
-  --admin-username ${AZ_USER}
+  --admin-username ${AZ_USER} \
+  --public-ip-address ${AZ_PUBLIC_IP} \
+  --public-ip-address-allocation static
   # --nsg ${AZ_NSG}
+
+# Find the public IP
+$ az network public-ip show \
+  --resource-group ${AZ_RESOURCE_GROUP} \
+  --name ${AZ_PUBLIC_IP} \
+  --query ipAddress \
+  --output json
+
 # List VMs
 $ az vm list --output table
 # Deallocate
@@ -42,4 +53,10 @@ $ az vm image list \
 
 ```bash
 $ nvidia-smi
+```
+
+## Ansible
+
+```bash
+$ ansible-playbook -i hosts playbook.yml
 ```

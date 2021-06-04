@@ -1,0 +1,6 @@
+- name: apply common configuration to all nodes
+  hosts: vm
+  remote_user: azureuser
+
+  roles:
+    - common
