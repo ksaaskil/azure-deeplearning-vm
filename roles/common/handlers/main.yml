@@ -2,6 +2,6 @@
 - name: Start code-server
   become: yes
   systemd:
-    name: code-server
+    name: codeserver
     state: started
     enabled: yes
