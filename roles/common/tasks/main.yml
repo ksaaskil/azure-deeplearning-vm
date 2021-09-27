@@ -9,12 +9,14 @@
   ping:
     data: pong
 
-- name: Install codeserver
-  shell:
-    cmd: "curl -fsSL https://code-server.dev/install.sh | sh"
-
 # - name: Install codeserver
-#   shell: "curl -fOL https://github.com/cdr/code-server/releases/download/v3.10.2/code-server_3.10.2_amd64.deb && sudo dpkg -i code-server_3.10.2_amd64.deb"
+#   shell:
+#     cmd: "curl -fsSL https://code-server.dev/install.sh | sh"
+
+- name: Install codeserver
+  shell: "curl -fOL https://github.com/cdr/code-server/releases/download/v3.10.2/code-server_3.10.2_amd64.deb && sudo dpkg -i code-server_3.10.2_amd64.deb"
+
+# Also do "sudo systemctl enable --now code-server@$USER" here, or in handlers
 
 - name: Copy systemd service file to server
   copy:
